@@ -6,8 +6,8 @@ public abstract class Player extends GameCharacter {
 
     protected ArrayList<IInventory> inventory;
 
-    public Player(String name, double health) {
-        super(name, health);
+    public Player(String name) {
+        super(name);
         this.inventory = new ArrayList<IInventory>();
     }
 

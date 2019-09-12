@@ -4,8 +4,8 @@ public class Enemy extends GameCharacter {
 
     private int damage;
 
-    public Enemy(String name, double health, int damage) {
-        super(name, health);
+    public Enemy(String name, int damage) {
+        super(name);
         this.damage = damage;
     }
 }
