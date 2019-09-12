@@ -16,6 +16,6 @@ public class EnemyTest {
 
     @Test
     public void canGetEnemyDamage() {
-        assertEquals(50, enemy.getDamage());
+        assertEquals(50, enemy.getDamage(), 0.01 );
     }
 }
