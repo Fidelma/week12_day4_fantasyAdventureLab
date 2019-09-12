@@ -1,3 +1,5 @@
+package Room;
+
 import characters.Enemy;
 import powers.TreasureType;
 

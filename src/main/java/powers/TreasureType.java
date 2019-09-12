@@ -1,6 +1,8 @@
 package powers;
 
-public enum TreasureType {
+import characters.IInventory;
+
+public enum TreasureType implements IInventory {
 
     GEM(5),
     MOONSTONE(15),

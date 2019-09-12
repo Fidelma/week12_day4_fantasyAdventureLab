@@ -1,3 +1,4 @@
+import Room.Room;
 import characters.Enemy;
 import org.junit.Before;
 import org.junit.Test;

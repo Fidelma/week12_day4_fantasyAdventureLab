@@ -1,5 +1,6 @@
 package characters;
 
+import Room.Room;
 import behaviours.IAttack;
 import behaviours.IDefend;
 import powers.CreatureType;
@@ -26,6 +27,9 @@ public class Wizard extends Player implements IAttack {
 
     public void defend(double damage) {
         this.health -= damage/getCreatureResistance();
+        if(this.health < 0){
+            this.health = 0;
+        }
 
     }
 
@@ -36,5 +40,15 @@ public class Wizard extends Player implements IAttack {
     public void attack(IDefend character) {
         defend(character.getDamage());
         character.defend(getDamage());
+    }
+
+    public void attemptQuest(Room room) {
+        Enemy enemy = room.getEnemy();
+        while (enemy.getHealth() > 0 && this.health > 0){
+            attack(enemy);
+        }
+        if(this.health > 0 && enemy.getHealth() == 0){
+            inventory.add(room.getTreasure());
+        }
     }
 }
