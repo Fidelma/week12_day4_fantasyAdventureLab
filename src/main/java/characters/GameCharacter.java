@@ -1,8 +1,10 @@
 package characters;
 
+import behaviours.IDefend;
+
 import java.util.ArrayList;
 
-public abstract class GameCharacter {
+public abstract class GameCharacter implements IDefend {
 
     protected String name;
     protected double health;
@@ -10,10 +12,6 @@ public abstract class GameCharacter {
     public GameCharacter(String name) {
         this.name = name;
         this.health = 100;
-    }
-
-    public void takeDamage(int damage) {
-        this.health -= damage;
     }
 
     public String getName() {

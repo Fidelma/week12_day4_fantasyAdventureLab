@@ -10,10 +10,12 @@ import static org.junit.Assert.assertEquals;
 public class KnightTest {
 
     Knight knight;
+    Enemy enemy;
 
     @Before
     public void setUp(){
         knight = new Knight("Lancelot", WeaponType.SWORD, ArmourType.BODY);
+        enemy = new Enemy("Trouble", 50);
     }
 
     @Test
@@ -45,4 +47,12 @@ public class KnightTest {
     public void canGetArmourResistance() {
         assertEquals(4, knight.getArmourResistance());
     }
+
+    @Test
+    public void canAttack() {
+        knight.attack(enemy);
+        assertEquals(87.5, knight.getHealth(), 0.01);
+        assertEquals(55, enemy.getHealth(), 0.01);
+    }
+
 }

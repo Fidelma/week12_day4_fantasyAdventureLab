@@ -1,5 +1,6 @@
 package characters;
 
+import behaviours.IDefend;
 import powers.HealingItemType;
 
 public class Cleric extends Player {
@@ -10,5 +11,18 @@ public class Cleric extends Player {
         super(name);
         this.healingItem = healingItem;
     }
+
+    public int getHealingItemReplenishment() {
+        return this.healingItem.getReplenishment();
+    }
+
+    public void defend(double damage) {
+        this.health -= damage;
+    }
+
+    public double getDamage() {
+        return 0;
+    }
+
 
 }
