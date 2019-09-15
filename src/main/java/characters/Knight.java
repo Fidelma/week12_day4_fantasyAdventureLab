@@ -14,6 +14,7 @@ public class Knight extends Player implements IAttack {
     private WeaponType weapon;
     private ArmourType armour;
 
+
     public Knight(String name, WeaponType weapon, ArmourType armour) {
         super(name);
         this.weapon = weapon;
@@ -56,6 +57,8 @@ public class Knight extends Player implements IAttack {
         }
         if(this.health > 0 && enemy.getHealth() == 0){
             treasure.add(room.getTreasure());
+        }else {
+            this.alive = false;
         }
     }
 
@@ -73,5 +76,17 @@ public class Knight extends Player implements IAttack {
             setArmour(armour);
             this.treasure.clear();
         }
+    }
+
+    public void buyWeapon(WeaponType weapon) {
+        int moneyAvailable = getValueOfTreasure();
+        if(moneyAvailable >= weapon.getPrice()){
+            setWeapon(weapon);
+            this.treasure.clear();
+        }
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 }

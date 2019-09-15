@@ -19,4 +19,12 @@ public class Quest {
     public int numberOfRooms() {
         return this.rooms.size();
     }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public Room getRoom(int i) {
+        return rooms.get(i);
+    }
 }

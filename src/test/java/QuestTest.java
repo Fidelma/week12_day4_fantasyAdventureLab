@@ -34,4 +34,10 @@ public class QuestTest {
         quest.addRoom(room4);
         assertEquals(4, quest.numberOfRooms());
     }
+
+    @Test
+    public void canGetRoom() {
+        quest.addRoom(room1);
+        assertEquals(room1, quest.getRoom(0));
+    }
 }

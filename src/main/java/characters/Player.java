@@ -9,11 +9,14 @@ public abstract class Player extends GameCharacter {
 
     protected ArrayList<IInventory> inventory;
     protected ArrayList<TreasureType> treasure;
+    protected boolean alive;
 
     public Player(String name) {
         super(name);
         this.inventory = new ArrayList<IInventory>();
         this.treasure = new ArrayList<TreasureType>();
+        this.alive = true;
+
 
     }
 

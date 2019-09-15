@@ -70,6 +70,7 @@ public class KnightTest {
         assertEquals(0, enemy.getHealth(), 0.01);
         assertEquals(1, knight.getTreasure().size());
         assertEquals(62.5, knight.getHealth(), 0.01);
+        assertEquals(true, knight.isAlive());
 
     }
 
@@ -79,6 +80,7 @@ public class KnightTest {
         assertEquals(55, enemy2.getHealth(), 0.01);
         assertEquals(0, knight.getInventory().size());
         assertEquals(0, knight.getHealth(), 0.01);
+        assertEquals(false, knight.isAlive());
     }
 
     @Test
@@ -89,5 +91,11 @@ public class KnightTest {
         assertEquals(3, knight.getArmourResistance());
     }
 
-
+    @Test
+    public void canBuyWeapon() {
+        knight.attemptQuest(room);
+        knight.buyWeapon(WeaponType.BLADE);
+        assertEquals(0, knight.getValueOfTreasure());
+        assertEquals(WeaponType.BLADE, knight.getWeapon());
+    }
 }
