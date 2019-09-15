@@ -68,7 +68,7 @@ public class KnightTest {
     public void canCompleteQuest() {
         knight.attemptQuest(room);
         assertEquals(0, enemy.getHealth(), 0.01);
-        assertEquals(1, knight.getInventory().size());
+        assertEquals(1, knight.getTreasure().size());
         assertEquals(62.5, knight.getHealth(), 0.01);
 
     }
@@ -80,4 +80,14 @@ public class KnightTest {
         assertEquals(0, knight.getInventory().size());
         assertEquals(0, knight.getHealth(), 0.01);
     }
+
+    @Test
+    public void canBuyArmour() {
+        knight.attemptQuest(room);
+        knight.buyArmour(ArmourType.HELMET);
+        assertEquals(0, knight.getValueOfTreasure());
+        assertEquals(3, knight.getArmourResistance());
+    }
+
+
 }

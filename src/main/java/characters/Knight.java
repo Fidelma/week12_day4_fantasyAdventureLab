@@ -4,7 +4,10 @@ import Room.Room;
 import behaviours.IAttack;
 import behaviours.IDefend;
 import powers.ArmourType;
+import powers.TreasureType;
 import powers.WeaponType;
+
+import java.util.ArrayList;
 
 public class Knight extends Player implements IAttack {
 
@@ -14,7 +17,7 @@ public class Knight extends Player implements IAttack {
     public Knight(String name, WeaponType weapon, ArmourType armour) {
         super(name);
         this.weapon = weapon;
-        this.armour = armour;
+       this.armour = armour;
     }
 
     public WeaponType getWeapon() {
@@ -52,7 +55,23 @@ public class Knight extends Player implements IAttack {
             attack(enemy);
         }
         if(this.health > 0 && enemy.getHealth() == 0){
-            inventory.add(room.getTreasure());
+            treasure.add(room.getTreasure());
+        }
+    }
+
+    public void setWeapon(WeaponType weapon) {
+        this.weapon = weapon;
+    }
+
+    public void setArmour(ArmourType armour) {
+        this.armour = armour;
+    }
+
+    public void buyArmour(ArmourType armour){
+        int moneyAvailable = getValueOfTreasure();
+        if(moneyAvailable >= armour.getPrice()){
+            setArmour(armour);
+            this.treasure.clear();
         }
     }
 }

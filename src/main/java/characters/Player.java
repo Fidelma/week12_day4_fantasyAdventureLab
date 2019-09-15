@@ -1,14 +1,20 @@
 package characters;
 
+import powers.TreasureType;
+
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public abstract class Player extends GameCharacter {
 
     protected ArrayList<IInventory> inventory;
+    protected ArrayList<TreasureType> treasure;
 
     public Player(String name) {
         super(name);
         this.inventory = new ArrayList<IInventory>();
+        this.treasure = new ArrayList<TreasureType>();
+
     }
 
     public ArrayList<IInventory> getInventory() {
@@ -23,4 +29,15 @@ public abstract class Player extends GameCharacter {
         this.health += replenishment;
     }
 
+   public int getValueOfTreasure(){
+        int totalValue = 0;
+        for(TreasureType item : treasure){
+            totalValue += item.getValue();
+        }
+       return totalValue;
+   }
+
+    public ArrayList<TreasureType> getTreasure() {
+        return treasure;
+    }
 }
